@@ -14,6 +14,14 @@ public abstract class Event {
 
     }
     
+    public Event(String eventName, String eventDescription, String eventActivities, double admissionFees){
+        this.eventName = eventName;
+        this.eventDescription = eventDescription;
+        this.eventActivities = eventActivities;
+        this.admissionFees = admissionFees;
+        
+    }
+    
  
 	/**
 	 * @return the eventName

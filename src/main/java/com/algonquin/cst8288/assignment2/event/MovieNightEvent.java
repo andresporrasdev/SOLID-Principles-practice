@@ -4,6 +4,8 @@
  */
 package com.algonquin.cst8288.assignment2.event;
 
+import static com.algonquin.cst8288.assignment2.constants.Constants.*;
+
 /**
  *
  * @author camil
@@ -20,7 +22,9 @@ public class MovieNightEvent extends Event{
     
     @Override
     public void calculateAdmissionFee() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+                double fee = MOVIE_NIGHT_DURATION * MOVIE_NIGHT_RATE;
+
+//        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
     
 }

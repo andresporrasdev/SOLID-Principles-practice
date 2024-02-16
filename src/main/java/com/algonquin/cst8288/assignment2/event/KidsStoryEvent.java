@@ -4,6 +4,8 @@
  */
 package com.algonquin.cst8288.assignment2.event;
 
+import static com.algonquin.cst8288.assignment2.constants.Constants.*;
+
 /**
  *
  * @author camil
@@ -23,7 +25,7 @@ public class KidsStoryEvent extends Event {
 
     @Override
     public void calculateAdmissionFee() {
-        
+        double fee = KIDS_STORYTIME_DURATION * KIDS_STORYTIME_RATE;
 //        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
     

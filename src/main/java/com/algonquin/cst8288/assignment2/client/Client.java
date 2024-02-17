@@ -59,6 +59,38 @@ public class Client {
             logger.logException(LogLevel.ERROR, "Failed to store the event in the database.", e);
         }
         
+        //Test publicLibrary
+//      LibraryFactory publicLibrary = new publicLibrary();
+        eventDTO.setEventName("Kids Story Time");
+        eventDTO.setEventDescription("Kids Story Time Description Test");
+        eventDTO.setEventActivities("Activities Kids Story Time");
+        eventDTO.setAdmissionFees(20.0); // Set admission fees
+        
+        // Store the event in the database
+        try {
+            EventDAOImpl eventDAO = new EventDAOImpl();
+            eventDAO.createEvent(eventDTO);
+            logger.log(LogLevel.INFO, "Event created and stored successfully in the database.");
+        } catch (SQLException e) {
+            logger.logException(LogLevel.ERROR, "Failed to store the event in the database.", e);
+        }
+        
+        //Test publicLibrary
+//      LibraryFactory publicLibrary = new publicLibrary();
+        eventDTO.setEventName("Movie Night");
+        eventDTO.setEventDescription("Movie Night Description Test");
+        eventDTO.setEventActivities("Movie Night activity");
+        eventDTO.setAdmissionFees(20.0); // Set admission fees
+        
+        // Store the event in the database
+        try {
+            EventDAOImpl eventDAO = new EventDAOImpl();
+            eventDAO.createEvent(eventDTO);
+            logger.log(LogLevel.INFO, "Event created and stored successfully in the database.");
+        } catch (SQLException e) {
+            logger.logException(LogLevel.ERROR, "Failed to store the event in the database.", e);
+        }
+        
     } 
     
 }

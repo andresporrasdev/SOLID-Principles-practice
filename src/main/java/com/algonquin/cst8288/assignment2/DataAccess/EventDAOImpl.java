@@ -28,10 +28,10 @@ public class EventDAOImpl implements EventDAO{
         // Testing SQL
         String insertQuery = "INSERT INTO events (event_name, event_description, event_activities, admission_fees) VALUES (?, ?, ?, ?)";
         PreparedStatement pstmt = con.prepareStatement(insertQuery);
-        pstmt.setString(1, "Author Talk");
-        pstmt.setString(2, "An intimate discussion with renowned authors");
-        pstmt.setString(3, "book fair");
-        pstmt.setDouble(4, 10.00);
+        pstmt.setString(1, event.eventName);
+        pstmt.setString(2, event.eventDescription);
+        pstmt.setString(3, event.eventActivities);
+        pstmt.setDouble(4, 23.00);
         pstmt.executeUpdate();
 
         // Closing resources

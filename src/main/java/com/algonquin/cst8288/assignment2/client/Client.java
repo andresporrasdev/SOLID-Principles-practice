@@ -1,6 +1,11 @@
 package com.algonquin.cst8288.assignment2.client;
 import com.algonquin.cst8288.assignment2.DataAccess.EventDAOImpl;
+import com.algonquin.cst8288.assignment2.DataAccess.EventDTO;
 import com.algonquin.cst8288.assignment2.database.DBConnection;
+import com.algonquin.cst8288.assignment2.library.AcademicLibrary;
+import com.algonquin.cst8288.assignment2.library.LibraryFactory;
+import com.algonquin.cst8288.assignment2.logger.LMSLogger;
+import com.algonquin.cst8288.assignment2.logger.LogLevel;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -10,39 +15,50 @@ import java.util.logging.Logger;
 
 
 public class Client {
-	
-//    public static void main(String[] args) throws SQLException {
-//        //Singleton
-//        DBConnection.stablishConnection();
-//        DBConnection.stablishConnection();
-//// Testing SQL
-//        String insertQuery = "INSERT INTO events (event_name, event_description, event_activities, admission_fees) VALUES (?, ?, ?, ?)";
-//        PreparedStatement pstmt = DBConnection.connection.prepareStatement(insertQuery);
-//        pstmt.setString(1, "Author Talk");
-//        pstmt.setString(2, "An intimate discussion with renowned authors");
-//        pstmt.setString(3, "book fair");
-//        pstmt.setDouble(4, 123.0);
-//        pstmt.executeUpdate();
-//    }
-    
+    public Client() {
+}
+	  
     
 
     public static void main(String[] args) throws SQLException {
-        // Establishing connection
-        Connection con = DBConnection.establishConnection();
+        // Set log level to INFO
+        LMSLogger logger = LMSLogger.getInstance();
+        logger.setLogLevel(LogLevel.INFO);
+        
+        EventDTO eventDTO = new EventDTO();
 
-        // Testing SQL
-        String insertQuery = "INSERT INTO events (event_name, event_description, event_activities, admission_fees) VALUES (?, ?, ?, ?)";
-        PreparedStatement pstmt = con.prepareStatement(insertQuery);
-        pstmt.setString(1, "Author Talk");
-        pstmt.setString(2, "An intimate discussion with renowned authors");
-        pstmt.setString(3, "book fair");
-        pstmt.setDouble(4, 10.00);
-        pstmt.executeUpdate();
-
-        // Closing resources
-        pstmt.close();
-        con.close();
-    }
+        // Test WorkShop
+        LibraryFactory academicLibrary = new AcademicLibrary();
+        eventDTO.setEventName("Workshop");
+        eventDTO.setEventDescription("Workshop Description Test");
+        eventDTO.setEventActivities("Workshop Activities Test");
+        eventDTO.setAdmissionFees(20.0); // Set admission fees
+        
+        // Store the event in the database
+        try {
+            EventDAOImpl eventDAO = new EventDAOImpl();
+            eventDAO.createEvent(eventDTO);
+            logger.log(LogLevel.INFO, "Event created and stored successfully in the database.");
+        } catch (SQLException e) {
+            logger.logException(LogLevel.ERROR, "Failed to store the event in the database.", e);
+        }
+        
+        //Test BookLunch
+//      LibraryFactory libraryFactory = new AcademicLibrary();
+        eventDTO.setEventName("Booklunch");
+        eventDTO.setEventDescription("BookLunch Description Test");
+        eventDTO.setEventActivities("Activities BookLunch");
+        eventDTO.setAdmissionFees(20.0); // Set admission fees
+        
+        // Store the event in the database
+        try {
+            EventDAOImpl eventDAO = new EventDAOImpl();
+            eventDAO.createEvent(eventDTO);
+            logger.log(LogLevel.INFO, "Event created and stored successfully in the database.");
+        } catch (SQLException e) {
+            logger.logException(LogLevel.ERROR, "Failed to store the event in the database.", e);
+        }
+        
+    } 
     
 }

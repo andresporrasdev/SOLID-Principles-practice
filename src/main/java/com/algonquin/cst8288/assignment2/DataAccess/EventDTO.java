@@ -20,7 +20,7 @@ public class EventDTO {
     return eventId;
     }
     
-    public void setEventId(){
+    public void setEventId(Integer eventId ){
         this.eventId= eventId;
     }
     
@@ -28,7 +28,7 @@ public class EventDTO {
         return eventName;
     }
     
-    public void setEventName(){
+    public void setEventName(String eventName){
         this.eventName=eventName;
     }
     
@@ -36,15 +36,25 @@ public class EventDTO {
         return eventDescription;
     }
     
-    public void setEventDescription(){
+    public void setEventDescription(String eventDescription){
         this.eventDescription=eventDescription;
     }
     
-            public String getEventActivities(){
+    public String getEventActivities(){
         return eventActivities;
     }
     
-    public void setEventActivities(){
+    public void setEventActivities(String eventActivities ){
         this.eventActivities=eventActivities;
     }
+    
+    public double getAdmissionFeeds(){
+        return admissionFees;
+    }
+    
+    public void setAdmissionFees(double admissionFees){
+        this.admissionFees=admissionFees;
+    }
+            
+          
 }

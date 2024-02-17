@@ -31,4 +31,31 @@ public class DBConnection {
         }
         return connection;
     }
+    
+    public static Connection getInstance() throws SQLException {
+        if (connection == null || connection.isClosed()) {
+            synchronized (DBConnection.class) {
+                if (connection == null || connection.isClosed()) {
+                    try {
+                        Class.forName(driverString);
+                        connection = DriverManager.getConnection(serverUrl, userString, passwordString);
+                        System.out.println("Connection successful");
+                    } catch (ClassNotFoundException | SQLException ex) {
+                        ex.printStackTrace();
+                    }
+                }
+            }
+        } else {
+            System.out.println("Using existing connection");
+        }
+        return connection;
+    }
+    
+        // Method to close the connection
+    public static void closeConnection() throws SQLException {
+        if (connection != null && !connection.isClosed()) {
+            connection.close();
+            System.out.println("Connection closed");
+        }
+    }
 }

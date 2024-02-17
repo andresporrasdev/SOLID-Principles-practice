@@ -18,8 +18,8 @@ public class PublicLibrary extends LibraryFactory{
     @Override
     public Event createEvent(EventType eventType) {
         switch (eventType){
-            case KIDS_STORY: return new KidsStoryEvent();
-            case MOVIE_NIGHT: return new MovieNightEvent();
+            case KIDS_STORY: return new KidsStoryEvent("Event kids Test", "Event Kids Description Test", "Play with kids", 4.5);
+            case MOVIE_NIGHT: return new MovieNightEvent("Movie Night Test", "Movie Night Description Test", "Watch a movie", 5.5);
             default: throw new IllegalArgumentException("Invalid event type "+eventType);
         }
     }

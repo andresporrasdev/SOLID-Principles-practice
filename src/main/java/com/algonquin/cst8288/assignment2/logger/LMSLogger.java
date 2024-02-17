@@ -16,6 +16,7 @@ public class LMSLogger {
         if (instance == null) {
             instance = new LMSLogger();
         }
+        
         return instance;
     }
 

@@ -48,7 +48,7 @@ public class EventDTO {
         this.eventActivities=eventActivities;
     }
     
-    public double getAdmissionFeeds(){
+    public double getAdmissionFees(){
         return admissionFees;
     }
     

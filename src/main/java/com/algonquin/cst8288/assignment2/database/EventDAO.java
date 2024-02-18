@@ -12,7 +12,7 @@ import java.sql.SQLException;
  * @author camil
  */
 public interface EventDAO {
-    void createEvent(EventDTO event)  throws SQLException;
-    void deleteEvent(EventDTO event)  throws SQLException;
-    void updateEvent(EventDTO event)  throws SQLException;
+    void createEvent(EventDTO event) throws SQLException;
+    void deleteEvent(EventDTO event) throws SQLException;
+    void updateEvent(EventDTO event) throws SQLException;
 }

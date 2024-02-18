@@ -12,5 +12,5 @@ import com.algonquin.cst8288.assignment2.event.EventType;
  * @author camil
  */
 public abstract class LibraryFactory  {
-    public abstract Event createEvent(EventType eventType);
+    public abstract Event createEvent(EventType eventType, String eventName, String eventDescription, String eventActivity, double admissionFee);
 }

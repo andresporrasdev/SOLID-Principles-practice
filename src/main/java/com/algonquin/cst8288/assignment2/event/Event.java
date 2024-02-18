@@ -1,5 +1,7 @@
 package com.algonquin.cst8288.assignment2.event;
 
+import com.algonquin.cst8288.assignment2.DataAccess.EventDTO;
+
 public abstract class Event {
     
 	
@@ -19,6 +21,14 @@ public abstract class Event {
         this.eventDescription = eventDescription;
         this.eventActivities = eventActivities;
         this.admissionFees = admissionFees;
+        
+        //Storing item to DTO
+        EventDTO eventDTO = new EventDTO();
+        eventDTO.setEventName(eventName);
+        eventDTO.setEventDescription(eventDescription);
+        eventDTO.setEventActivities(eventActivities);
+        eventDTO.setAdmissionFees(admissionFees); // Set admission fees
+       
         
     }
     

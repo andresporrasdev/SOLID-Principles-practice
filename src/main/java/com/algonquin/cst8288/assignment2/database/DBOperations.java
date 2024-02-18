@@ -1,5 +1,6 @@
 package com.algonquin.cst8288.assignment2.database;
 
+import com.algonquin.cst8288.assignment2.DataAccess.EventDTO;
 import com.algonquin.cst8288.assignment2.event.Event;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -8,7 +9,7 @@ import java.sql.SQLException;
 
 public class DBOperations {
 
-    public static void createEvent(Event event) {
+    public static void createEvent(EventDTO event) {
         try (Connection con = DBConnection.getInstance()) {
         String insertQuery = "INSERT INTO events (event_name, event_description, event_activities, admission_fees) VALUES (?, ?, ?, ?)";
         try (PreparedStatement pstmt = con.prepareStatement(insertQuery)) {

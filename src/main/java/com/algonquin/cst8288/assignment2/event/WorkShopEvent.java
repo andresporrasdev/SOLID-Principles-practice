@@ -21,6 +21,7 @@ public class WorkShopEvent extends Event {
     @Override
     public void calculateAdmissionFee() {
         double fee = WORKSHOP_DURATION * WORKSHOP_RATE ;
+
 //        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 }

@@ -25,7 +25,7 @@ import java.sql.SQLException;
  *
  * @author camil
  */
-public class PublicLibrary extends LibraryFactory{
+public class PublicLibrary implements LibraryFactory{
 
 //    @Override
 //    public Event createEvent(EventType eventType, String eventName, String eventDescription, String eventActivity, double admissionFee ) {

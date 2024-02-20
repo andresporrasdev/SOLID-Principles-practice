@@ -22,7 +22,7 @@ import java.sql.SQLException;
  *
  * @author camil
  */
-public class AcademicLibrary extends LibraryFactory{
+public class AcademicLibrary implements LibraryFactory{
 
 @Override
 public Event createEvent(EventType eventType, String eventName, String eventDescription, String eventActivity, double admissionFee) {
